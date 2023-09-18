@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+  hello-beyondmd:
+    image: hello-beyondmd
+    ports:
+      - 80:80

@@ -1,0 +1,38 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+h1 {
+    font-size: 80px;
+  }
+
+.dark{
+    color: darkblue;
+}
+
+.light{
+    color: rgb(84, 143, 253);
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+
+#logo {
+
+    animation: rotating 2s linear infinite;
+  }
+
+  @keyframes rotating {
+    from {
+
+      transform: rotate(0deg);
+    }
+    to {
+
+      transform: rotate(360deg);
+    }
+  }
