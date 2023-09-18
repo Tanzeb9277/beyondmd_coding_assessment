@@ -1,7 +1,12 @@
 version: '3.7'
 
+# Define a service called hello-beyondmd.
 services:
   hello-beyondmd:
+
+    # Use the hello-beyondmd Docker image.
     image: hello-beyondmd
+
+    # Publish port 80 on the host machine to port 80 inside the container.
     ports:
       - 80:80
