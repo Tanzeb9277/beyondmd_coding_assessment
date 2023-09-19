@@ -1,0 +1,84 @@
+# Define a version of Docker Compose to use.
+version: '3.9'
+
+
+services:
+  db:
+    # Use the postgres:14-alpine Docker image.
+    image: postgres:14-alpine
+
+    # Create a volume for the PostgreSQL data directory.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+    # Set the PostgreSQL environment variables.
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+    
+    container_name: postgres
+
+    # Connect the container to the djangonetwork network.
+    networks:
+      - djangonetwork
+
+  frontend:
+
+    # Build the frontend image from the Dockerfile in the ./frontend directory.
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+    # Publish port 3000 from the host machine to port 3000 inside the container.
+    ports:
+      - '3000:3000'
+
+    # Create volumes for the frontend index.html file and src directory.
+    volumes:
+      - ./frontend/index.html:/fullstack-app/frontend/index.html
+      - ./frontend/src:/fullstack-app/frontend/src
+
+    # Depends on the backend service.
+    depends_on:
+      - backend
+
+  backend: 
+
+    # Build the backend image from the Dockerfile in the ./backend directory.
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+
+    # Publish port 8000 from the host machine to port 8000 inside the container.
+    ports:
+      - "8000:8000"
+
+    # Depends on the db service.
+    depends_on:
+      - db
+    
+    # Link the backend container to the db container.
+    links:
+      - db:db
+
+    # Connect the container to the djangonetwork network.
+    networks:
+      - djangonetwork
+
+    # Command to run when the container starts.
+    command: python manage.py runserver 0.0.0.0:8000
+
+
+# Define a volume for the PostgreSQL data directory.
+volumes:
+ postgres_data:
+
+
+# Define a network for the services to communicate on.
+networks:
+  djangonetwork:
+    driver: bridge
