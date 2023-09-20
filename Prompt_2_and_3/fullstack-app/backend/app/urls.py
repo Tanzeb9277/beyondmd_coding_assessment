@@ -7,6 +7,8 @@ from . import views
 app_name = 'app'
 
 urlpatterns = [
-    path('test/', views.send_some_data, name="index"), # Add this
-    path('addCat/', views.NewNamedCat.as_view(), name='add_cat'),
+    path('cats/', views.ReadNamedCats.as_view(), name="index"),
+    path('addCat/', views.CreateNamedCat.as_view(), name='add_cat'),
+    path('updateCat/<int:pk>/', views.UpdateNamedCat.as_view(), name='update_cat'),
+    path('deleteCat/<int:pk>/', views.DeleteNamedCat.as_view(), name='delete_cat'),
 ]
