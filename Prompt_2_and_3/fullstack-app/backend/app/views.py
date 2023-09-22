@@ -19,11 +19,10 @@ class CreateNamedCat(APIView):
             NamedCat.objects.create(name = name, image_url = image_url)
             return Response(status=status.HTTP_200_OK)
         
-class ReadNamedCats(APIView):
-    def get_cats(request):
-        namedCats = NamedCat.objects.all()
-        namedCats_json = serializers.serialize('json', namedCats)
-        return HttpResponse(namedCats_json, content_type='application/json')
+def get_cats(request):
+    namedCats = NamedCat.objects.all()
+    namedCats_json = serializers.serialize('json', namedCats)
+    return HttpResponse(namedCats_json, content_type='application/json')
         
 class UpdateNamedCat(APIView):
     serializer_class = NewNamedCatSerializer

@@ -1,0 +1,13 @@
+.card-actions{
+    display: flex;
+    justify-content: center;
+}
+
+.cat-card{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 25px !important;
+    padding-bottom: 25px !important;
+}
