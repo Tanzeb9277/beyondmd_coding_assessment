@@ -1,0 +1,41 @@
+:root {
+    --acent-color:    #47b1ee;
+    --primary-color:   #08244c;
+    --font-color:      #47b1ee;
+  }
+
+.react-pdf__Page__textContent{
+    display: none;
+}
+
+.react-pdf__Page__annotations{
+    display: none;
+}
+
+
+
+.pdf header {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  color: white;
+}
+
+.pdf header h1 {
+  font-size: inherit;
+  margin: 0;
+}
+
+.pdf-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.Example__container__load {
+  margin-top: 1em;
+  color: white;
+}
+ 

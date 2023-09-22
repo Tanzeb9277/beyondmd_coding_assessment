@@ -2,8 +2,8 @@
   --hello-bg-color:  #B4B7FF;
   --resume-bg-color: #97EAB9;
   --app-bg-color:    #FF868E;
-  --button-hover:    #47b1ee;
-  --button-active:   #08244c;
+  --acent-color:    #47b1ee;
+  --primary-color:   #08244c;
   --font-color:      #47b1ee;
 }
 
@@ -76,11 +76,11 @@
 }
 
 .nav-item button:hover{
-  background-color: var(--button-hover);
+  background-color: var(--acent-color);
   color: white;
 }
 .nav-item button:active{
-  background-color: var(--button-active);
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -98,23 +98,23 @@
   align-items: center;
 }
 
-.vote img{
+.hello img{
   width: 80%;
 }
 
-.breeds{
+.resume{
   background-color: var(--hello-bg-color)
 }
 
-.breeds img{
+.resume img{
   width: 100%;
 }
 
-.nav-item .gallery{
+.nav-item .app{
   background-color: var(--app-bg-color)
 }
 
-.gallery img{
+.app img{
   width: 100%;
 }
 
