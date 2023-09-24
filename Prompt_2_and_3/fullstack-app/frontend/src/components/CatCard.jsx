@@ -55,8 +55,24 @@ const CatCard = ({ name, date_named, image_url, pk, handleEdit, handleDelete }) 
         </Typography>
       </CardContent>
       <CardActions className='card-actions' >
-        <Button size="small" variant='contained' data-pk={pk} endIcon={<EditIcon/>} onClick={handleEdit}>Edit</Button>
-        <Button size="small" variant='contained' data-pk={pk} startIcon={<DeleteIcon/>} onClick={handleDelete}>Delete</Button>
+
+        <Button size="small" 
+        variant='contained' 
+        data-pk={pk} 
+        data-name={name} 
+        data-image={image_url}   
+        endIcon={<EditIcon/>} 
+        onClick={handleEdit}>
+          Edit
+        </Button>
+
+        <Button size="small" variant='contained' 
+        data-pk={pk}
+        startIcon={<DeleteIcon/>} 
+        onClick={handleDelete}>
+          Delete
+        </Button>
+        
       </CardActions>
     </Card>
   );

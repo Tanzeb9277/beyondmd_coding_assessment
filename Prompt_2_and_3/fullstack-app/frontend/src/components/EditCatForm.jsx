@@ -12,33 +12,19 @@ import axios from "axios";
 
 import './CarForm.css'
 
-const NewCatForm = ({ handleRefresh }) => {
+const EditCatForm = ({ handleRefresh, pk, name, image_url }) => {
 
-  // State variables to store the new cat's name and image.
-  const [newCatName, setNewCatName] = useState('');
-  const [newCatImage, setNewCatImage] = useState([]);
+
+  const [newCatName, setNewCatName] = useState();
+
+
 
   // Function to handle the new cat's name change.
   const handleNameChange = (event) => {
     setNewCatName(event.target.value);
   };
 
-  // Effect hook to fetch a new cat image on component mount.
-  useEffect(() => {
-    getNewCatImage();
-  }, []);
 
-  // Function to fetch a new cat image from the free API.
-  const getNewCatImage = () => {
-    axios.get('https://api.thecatapi.com/v1/images/search')
-      .then((response) => {
-        console.log(response.data[0].url);
-        setNewCatImage(response.data[0].url);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   // Function to display an alert if the new cat's name is empty.
   const displayAlert = () => {
@@ -47,28 +33,23 @@ const NewCatForm = ({ handleRefresh }) => {
   };
 
   // Function to create a new cat with the given name and image URL.
-  const createNamedCat = (e) => {
+  const editNamedCat = (e) => {
     e.preventDefault();
 
     if (newCatName !== '') {
-      axios.post(`http://localhost:8000/app/addCats/`, {
-        name: newCatName,
-        image_url: newCatImage,
-      })
+        axios.put(`http://localhost:8000/app/updateCat/${pk}/`, {
+            name: newCatName,
+            image_url: image_url,
+          })
         .then(() => {
+
           // Clear the new cat name input field.
           setNewCatName('');
 
           // Close the new cat form.
           closeNewCatForm();
 
-          // Fetch a new cat image.
-          getNewCatImage();
-
-          // After a short delay, refresh the cat list.
-          setTimeout(() => {
-            handleRefresh();
-          }, 250);
+          
         })
         .catch((error) => {
           console.log(error);
@@ -82,14 +63,18 @@ const NewCatForm = ({ handleRefresh }) => {
   // Function to close the new cat form.
   const closeNewCatForm = () => {
     let cardList = document.getElementById('card-list');
-    let catform = document.getElementById('new-cat-form');
+    let catform = document.getElementById('edit-cat-form');
     catform.style.display = 'none';
     cardList.style.display = 'block';
+    // After a short delay, refresh the cat list.
+    setTimeout(() => {
+        handleRefresh();
+      }, 550);
   };
 
   // Render the CatCard component.
   return (
-    <div className="cat-form-container" id="new-cat-form">
+    <div className="cat-form-container" id="edit-cat-form">
       <Card className="cat-form" sx={{
         maxWidth: 400,
         margin: "0 auto",
@@ -99,7 +84,7 @@ const NewCatForm = ({ handleRefresh }) => {
           sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
           component="img"
           height="250"
-          image={newCatImage}
+          image={image_url}
         />
         <CardContent>
           <TextField
@@ -118,7 +103,7 @@ const NewCatForm = ({ handleRefresh }) => {
             size="small"
             variant="contained"
             endIcon={<SendIcon />}
-            onClick={createNamedCat}
+            onClick={editNamedCat}
           >
             Submit
           </Button>
@@ -129,4 +114,4 @@ const NewCatForm = ({ handleRefresh }) => {
 };
 
 // Export the NewCatForm component.
-export default NewCatForm;
+export default EditCatForm;

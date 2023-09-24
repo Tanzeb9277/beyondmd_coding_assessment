@@ -24,3 +24,10 @@
 .card-list{
     margin-top: 5%;
 }
+
+.loading-container{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
