@@ -13,7 +13,10 @@
 }
 
 
-
+.pdf{
+  box-shadow: -3px 0px 10px 1px #aaaaaa;
+  height: 100%;
+}
 .pdf header {
   background-color: var(--primary-color);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
@@ -32,6 +35,7 @@
   align-items: center;
   margin: 10px 0;
   padding: 10px;
+  
 }
 
 .Example__container__load {

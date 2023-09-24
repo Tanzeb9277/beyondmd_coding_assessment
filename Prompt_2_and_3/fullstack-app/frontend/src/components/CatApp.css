@@ -1,0 +1,26 @@
+:root {
+    --acent-color:    #47b1ee;
+    --primary-color:   #08244c;
+    --font-color:      #47b1ee;
+  }
+
+.catapp-container{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -3px 0px 10px 1px #aaaaaa;
+}
+
+.catapp-nav{
+    width: 100%;
+    position: sticky !important;
+    background-color: white !important;
+    color: var(--font-color) !important;
+    font-weight: 600 !important;
+    top: 0;
+}
+
+.card-list{
+    margin-top: 5%;
+}

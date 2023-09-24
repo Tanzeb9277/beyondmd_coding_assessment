@@ -5,42 +5,19 @@ import docIcon from './assets/icons8-document-375.png'
 import beyondMDLogo from './assets/beyondMD.cc3e2659ac0b245af71b.png'
 import HelloBeyondMD from './components/HelloBeyondMD';
 import Resume from './components/Resume';
+import CatsApp from './components/CatApp';
 
 import './App.css'
 
 function App() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setIsLoading(true);
-    axios.get('http://localhost:8000/app/cats')
-      .then((response) => {
-        setIsLoading(false);
-        console.log(response.data);
-        setData(response.data)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-  }, []);
-
-
-  function formatDate(postDate){
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let d = new Date(postDate);
-    let date = d.getDate();
-    let month = months[d.getMonth()];
-    let year = d.getFullYear();
-    return(month + " " + date + " " + year)
-  } 
 
 
   return (
     <>
       <div className='app-container'>
         <div className="left-section">
+          <div className="fixed">
           <div className='sticky'>
             <div className="logo">
               <img src={beyondMDLogo} alt=""  />
@@ -68,9 +45,9 @@ function App() {
                 <div className="nav-icon app">
                   <img src="https://img.icons8.com/?size=200&id=GEAs8ke5mB3W&format=png" alt=""  />
                 </div>
-                <a href=""><button>Name a Cat</button></a>
+                <a href="/catApp"><button>Name a Cat</button></a>
               </div>
-              
+              </div>
             </div>
           </div>
           </div>
@@ -81,6 +58,7 @@ function App() {
             <Routes>
               <Route path='/' element={<HelloBeyondMD/>}/>
               <Route path='/resume' element={<Resume/>}/>
+              <Route path='/catApp' element={<CatsApp/>}/>
             </Routes>
           </BrowserRouter>
         </div>
