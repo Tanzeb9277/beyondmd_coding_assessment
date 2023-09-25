@@ -16,13 +16,13 @@ function LeftSection() {
               <h4>Welcome to BeyondMD Coding assessment 2023</h4>
             </div>
             <div className="section-selector">
-              <h3>Lets start using The Cat App</h3>
+              <h3>Let's start using The Cat App</h3>
               <div className="nav-menu">
               <div className="nav-item">
                 <div className="nav-icon hello">
                   <img src='https://img.icons8.com/?size=200&id=dlN23b953qvQ&format=png' alt=""  />
                 </div>
-                <a href="/"><button>Hello BeyonMD</button></a>
+                <a href="/"><button>Hello BeyondMD</button></a>
               </div>
               <div className="nav-item">
                 <div className="nav-icon resume">
