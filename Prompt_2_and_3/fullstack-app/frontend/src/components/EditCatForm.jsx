@@ -12,10 +12,17 @@ import axios from "axios";
 
 import './CarForm.css'
 
+// This is the CatCard component. It takes the following props:
+// - name: The cat's name.
+// - date_named: The date the cat was named.
+// - image_url: The URL of the cat's image.
+// - pk: The primary key of the cat in the database.
+// - handleEdit: A function to handle editing the cat.
+// - handleDelete: A function to handle deleting the cat.
 const EditCatForm = ({ handleRefresh, pk, name, image_url }) => {
 
 
-  const [newCatName, setNewCatName] = useState();
+  const [newCatName, setNewCatName] = useState("");
 
 
 
@@ -28,15 +35,16 @@ const EditCatForm = ({ handleRefresh, pk, name, image_url }) => {
 
   // Function to display an alert if the new cat's name is empty.
   const displayAlert = () => {
-    let alert = document.getElementById('imput-alert');
-    alert.style.display = 'block';
+    console.log('no name')
+    let alert = document.getElementById('edit-name-alert');
+    alert.style.display = 'flex';
   };
 
   // Function to create a new cat with the given name and image URL.
   const editNamedCat = (e) => {
     e.preventDefault();
 
-    if (newCatName !== '') {
+    if (newCatName !== "") {
         axios.put(`http://localhost:8000/app/updateCat/${pk}/`, {
             name: newCatName,
             image_url: image_url,
@@ -69,7 +77,7 @@ const EditCatForm = ({ handleRefresh, pk, name, image_url }) => {
     // After a short delay, refresh the cat list.
     setTimeout(() => {
         handleRefresh();
-      }, 550);
+      }, 350);
   };
 
   // Render the CatCard component.
@@ -89,12 +97,12 @@ const EditCatForm = ({ handleRefresh, pk, name, image_url }) => {
         <CardContent>
           <TextField
             fullWidth
-            label="New Cat Name"
+            label="Edit Cat Name"
             id="fullWidth"
             value={newCatName}
             onChange={handleNameChange}
           />
-          <Alert id="imput-alert" severity="error">
+          <Alert id="edit-name-alert" className="input-alert" severity="error">
             Name can't be empty!
           </Alert>
         </CardContent>

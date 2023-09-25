@@ -43,7 +43,7 @@ const NewCatForm = ({ handleRefresh }) => {
   // Function to display an alert if the new cat's name is empty.
   const displayAlert = () => {
     let alert = document.getElementById('imput-alert');
-    alert.style.display = 'block';
+    alert.style.display = 'flex';
   };
 
   // Function to create a new cat with the given name and image URL.

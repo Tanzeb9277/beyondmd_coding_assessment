@@ -17,6 +17,10 @@
     margin-right: auto;
 }
 
-#imput-alert{
-    display: none;
+#input-alert{
+    display: none ;
+}
+
+#edit-name-alert{
+    display: none ;
 }

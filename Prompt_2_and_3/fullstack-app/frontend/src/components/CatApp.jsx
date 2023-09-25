@@ -10,9 +10,6 @@ import './CatApp.css'
 // This component renders the main Cat App UI.
 function CatsApp() {
 
-
-
-
   // Return the main app UI.
   return (
     <div className="catapp-container">
