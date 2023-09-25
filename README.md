@@ -1,3 +1,4 @@
+
 # Welcome to the BeyondMD Coding Assessment repository!
 
 This repository contains two application:
@@ -10,6 +11,7 @@ This repository contains two application:
 
 ## Deployment
 
+### Promt 1
 To run the application in Prompt_1 run the following commands after cloning the repository
 
 ```bash
@@ -26,3 +28,33 @@ From the Prompt_1 directory to start the application run the following commands
 ```bash
   docker-compose up
 ```
+
+The application will then be running on 
+`http://localhost:80
+`
+### Promt 2 and 3
+To run the application in Prompt_1 run the following commands after cloning the repository
+
+```bash
+  cd beyondMD_coding_assessment/
+```
+```bash
+  cd Prompt_2_and_3/
+```
+```bash
+  cd fullstack-app/
+```
+From the Prompt_2_and_3 directory to start the application run the following commands
+
+```bash
+  docker-compose build
+```
+```bash
+  docker-compose up
+```
+
+The following applications will then be running on\
+Frontend React App: `http://localhost:3000`|\
+Backend Django App: `http://localhost:8000`|\
+Postgres DB: `http://localhost:5432`| 
+#

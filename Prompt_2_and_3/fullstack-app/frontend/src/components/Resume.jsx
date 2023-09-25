@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { pdfjs, Document, Page } from "react-pdf"
-import pdfFile from '../assets/sample.pdf'
+import pdfFile from '../assets/resume.pdf'
 import './Resume.css'
 
 
