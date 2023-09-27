@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 import Alert from '@mui/material/Alert';
 import axios from "axios";
 
-import './CarForm.css'
+import './CatForm.css'
 
 // This is the CatCard component. It takes the following props:
 // - name: The cat's name.

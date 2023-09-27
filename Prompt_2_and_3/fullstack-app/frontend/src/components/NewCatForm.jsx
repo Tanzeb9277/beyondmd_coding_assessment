@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 import Alert from '@mui/material/Alert';
 import axios from "axios";
 
-import './CarForm.css'
+import './CatForm.css'
 
 const NewCatForm = ({ handleRefresh }) => {
 
@@ -42,7 +42,7 @@ const NewCatForm = ({ handleRefresh }) => {
 
   // Function to display an alert if the new cat's name is empty.
   const displayAlert = () => {
-    let alert = document.getElementById('imput-alert');
+    let alert = document.getElementById('input-alert');
     alert.style.display = 'flex';
   };
 
@@ -109,7 +109,7 @@ const NewCatForm = ({ handleRefresh }) => {
             value={newCatName}
             onChange={handleNameChange}
           />
-          <Alert id="imput-alert" severity="error">
+          <Alert id="input-alert" severity="error">
             Name can't be empty!
           </Alert>
         </CardContent>

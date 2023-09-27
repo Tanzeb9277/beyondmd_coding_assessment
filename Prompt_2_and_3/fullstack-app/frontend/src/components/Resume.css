@@ -15,7 +15,7 @@
 
 .pdf{
   box-shadow: -3px 0px 10px 1px #aaaaaa;
-  height: 100%;
+  min-height: 100%;
 }
 .pdf header {
   background-color: var(--primary-color);
