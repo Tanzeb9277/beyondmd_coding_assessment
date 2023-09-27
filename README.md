@@ -33,7 +33,7 @@ The application will then be running on
 `http://localhost:80
 `
 ### Promt 2 and 3
-To run the application in Prompt_1 run the following commands after cloning the repository
+To run the application in Prompt_2_and_3 run the following commands after cloning the repository
 
 ```bash
   cd beyondMD_coding_assessment/
